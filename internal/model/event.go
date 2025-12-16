@@ -2,7 +2,6 @@ package model
 
 import "time"
 
-// Event представляет одно событие в системе
 type Event struct {
 	ID        int64     `json:"id"`
 	Type      string    `json:"type"`

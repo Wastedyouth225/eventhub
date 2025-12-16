@@ -15,7 +15,7 @@ func TestCreateEvent(t *testing.T) {
 	store := storage.NewMemoryStorage()
 	h := NewEventHandler(store)
 
-	// Подготовим тестовое событие
+	// test event
 	event := model.Event{
 		Type:    "test",
 		Payload: "hello",
@@ -32,7 +32,6 @@ func TestCreateEvent(t *testing.T) {
 		t.Errorf("Expected status 201, got %d", resp.StatusCode)
 	}
 
-	// Проверяем, что событие сохранилось
 	if len(store.GetEvents()) != 1 {
 		t.Errorf("Expected 1 event in storage, got %d", len(store.GetEvents()))
 	}

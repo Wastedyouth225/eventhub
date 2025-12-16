@@ -13,7 +13,6 @@ type EventHandler struct {
 	storage *storage.MemoryStorage
 }
 
-// Конструктор handler
 func NewEventHandler(s *storage.MemoryStorage) *EventHandler {
 	return &EventHandler{storage: s}
 }
@@ -32,7 +31,7 @@ func (h *EventHandler) CreateEvent(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(created)
 }
 
-// GET /events с пагинацией
+// GET /events
 func (h *EventHandler) ListEvents(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
 	limit, _ := strconv.Atoi(query.Get("limit"))

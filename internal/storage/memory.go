@@ -13,7 +13,6 @@ type MemoryStorage struct {
 	nextID int64
 }
 
-// Создаём новое хранилище
 func NewMemoryStorage() *MemoryStorage {
 	return &MemoryStorage{
 		events: []model.Event{},
@@ -21,7 +20,6 @@ func NewMemoryStorage() *MemoryStorage {
 	}
 }
 
-// Добавление события
 func (s *MemoryStorage) AddEvent(event model.Event) model.Event {
 	s.mu.Lock()
 	defer s.mu.Unlock()
@@ -33,7 +31,6 @@ func (s *MemoryStorage) AddEvent(event model.Event) model.Event {
 	return event
 }
 
-// Получение всех событий
 func (s *MemoryStorage) GetEvents() []model.Event {
 	s.mu.Lock()
 	defer s.mu.Unlock()
